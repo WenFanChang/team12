@@ -17,12 +17,13 @@ return new class extends Migration
             $table->id();
             $table->integer("oid");
             $table->string("name");
+            $table->string("position");
             $table->float("height");
             $table->float("weight");
             $table->integer("year");
             $table->integer("age");
             $table->string("nationality");
-            $table->string("test");
+            //$table->string("test");
 
             $table->timestamps();
         });
