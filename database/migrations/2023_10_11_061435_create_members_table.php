@@ -22,6 +22,7 @@ return new class extends Migration
             $table->integer("year");
             $table->integer("age");
             $table->string("nationality");
+            $table->string("test");
 
             $table->timestamps();
         });
