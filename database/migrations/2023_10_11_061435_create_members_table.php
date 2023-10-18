@@ -15,12 +15,12 @@ return new class extends Migration
     {
         Schema::create('members', function (Blueprint $table) {
             $table->id();
-            $table->string("oid");
+            $table->integer("oid");
             $table->string("name");
             $table->float("height");
             $table->float("weight");
-            $table->string("year");
-            $table->string("age");
+            $table->integer("year");
+            $table->integer("age");
             $table->string("nationality");
 
             $table->timestamps();
