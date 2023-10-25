@@ -14,15 +14,15 @@ return new class extends Migration
     public function up()
     {
         Schema::create('members', function (Blueprint $table) {
-            $table->id();
-            $table->integer("oid");
-            $table->string("name");
-            $table->string("position");
-            $table->float("height");
-            $table->float("weight");
-            $table->integer("year");
-            $table->integer("age");
-            $table->string("nationality");
+            $table->id()->comment('編號');
+            $table->string("name")->comment('人員名稱');
+            $table->integer("oid")->unsigned()->comment('團體');
+            $table->string("position")->comment('位置');
+            $table->double("height")->unsigned()->nullable()->comment('身高');
+            $table->double("weight")->unsigned()->nullable()->comment('體重');
+            $table->integer("year")->unsigned()->nullable()->comment('年資');
+            $table->integer("age")->unsigned()->default(16)->comment('年齡');
+            $table->string("nationality")->default('韓國')->comment('國籍');
             //$table->string("test");
 
             $table->timestamps();
