@@ -16,7 +16,8 @@ return new class extends Migration
         Schema::create('members', function (Blueprint $table) {
             $table->id()->comment('編號');
             $table->string("name")->comment('人員名稱');
-            $table->integer("oid")->unsigned()->comment('團體');
+            $table->foreignId("oid")->comment('團體(外部建)');
+            $table->foreign('oid')->references('id')->on('orchestra')->onDelete('cascade');
             $table->string("position")->comment('位置');
             $table->double("height")->unsigned()->nullable()->comment('身高');
             $table->double("weight")->unsigned()->nullable()->comment('體重');
