@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MembersController;
+use App\Http\Controllers\OrchestraController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +16,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
+
+Route::get('Members', [MembersController::class, 'index'])->name('Members.index');
+Route::get('Orchestra', [OrchestraController::class, 'index'])->name('Orchestra.index');
