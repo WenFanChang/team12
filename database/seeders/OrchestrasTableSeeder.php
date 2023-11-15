@@ -1,12 +1,11 @@
 <?php
 
 namespace Database\Seeders;
-
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-
-class OrchestraTableSeeder extends Seeder
+ 
+class OrchestrasTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -80,7 +79,7 @@ class OrchestraTableSeeder extends Seeder
             $style = $this->generateRandomStyle();
             $random_detetime = Carbon::now()->subMinutes(rand(1,55));
 
-            DB::table('orchestra')->insert([
+            DB::table('orchestras')->insert([
                 'name' => $name,
                 'company' => $company,
                 'city' => $city,

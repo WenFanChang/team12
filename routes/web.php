@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MembersController;
-use App\Http\Controllers\OrchestraController;
+use App\Http\Controllers\OrchestrasController;
 
 
 /*
@@ -19,6 +19,9 @@ use App\Http\Controllers\OrchestraController;
 //Route::get('/', function () {
 //    return view('welcome');
 //});
+Route::get('/', function (){
+    return redirect('Members');
 
+});
 Route::get('Members', [MembersController::class, 'index'])->name('Members.index');
-Route::get('Orchestra', [OrchestraController::class, 'index'])->name('Orchestra.index');
+Route::get('Orchestra', [OrchestrasController::class, 'index'])->name('Orchestra.index');

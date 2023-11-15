@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Orchestra;
 
-class OrchestraController extends Controller
+class OrchestrasController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +14,8 @@ class OrchestraController extends Controller
      */
     public function index()
     {
-        //
+        
+        return Orchestra::all()->toArray();
     }
 
     /**
