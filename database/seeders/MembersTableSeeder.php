@@ -39,7 +39,7 @@ class MembersTableSeeder extends Seeder
 
             DB::table('members')->insert([
                 'name' =>$name,
-                'oid' => rand(1,100),
+                'oid' => rand(1,500),
                 'position' => $position,
                 'height' => rand(165,220),
                 'weight' => rand(40,90),
