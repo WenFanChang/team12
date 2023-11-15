@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Members;
+use App\Models\Member;
 
 class MembersController extends Controller
 {
@@ -15,7 +15,7 @@ class MembersController extends Controller
     public function index()
     {
         //
-        return Members::all()->toArray();
+        return Member::all()->toArray();
     }
 
     /**

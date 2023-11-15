@@ -13,7 +13,8 @@ class Orchestra extends Model
         'name',
         'company',
         'city',
-        'style'
+        'style',
+        'created_at'
     ];
 
 
