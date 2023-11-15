@@ -15,7 +15,9 @@ class OrchestraTableSeeder extends Seeder
      */
     public function generateRandomName() {
         $name = array( 'Beyond', 'S.H.E',  'Maroon',  'Westlife', 
-              'Spice Girls', 'BIGBANG', 'SUPER JUNIOR', '2NE1', 'EXO');
+              'Spice Girls', 'BIGBANG', 'SUPER JUNIOR', '2NE1',
+               'EXO', 'The Beatles', 'The Rolling Stones', 'BLACKPINK',
+               'AKB48', 'Iz*One', 'BTS','SMAP');
               return $name[rand(0,count($name)-1)];       
 
     }
