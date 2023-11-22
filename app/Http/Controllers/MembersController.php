@@ -15,7 +15,9 @@ class MembersController extends Controller
     public function index()
     {
         //
-        return Member::all()->toArray();
+        $m = Member::all()->toArray();
+        return view('Members.index')->with('members', $m);
+
     }
 
     /**
