@@ -26,6 +26,6 @@ Route::get('/', function (){
 /***Route::get('/', function (){
     return redirect('orchestras');
 
-});****/
+});****///d1104181048測試
 Route::get('members', [MembersController::class, 'index'])->name('members.index');
 Route::get('orchestras', [OrchestrasController::class, 'index'])->name('orchestras.index');
