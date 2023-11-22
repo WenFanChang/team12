@@ -20,8 +20,12 @@ use App\Http\Controllers\OrchestrasController;
 //    return view('welcome');
 //});
 Route::get('/', function (){
-    return redirect('Members');
+    return redirect('members');
 
 });
-Route::get('Members', [MembersController::class, 'index'])->name('Members.index');
-Route::get('Orchestra', [OrchestrasController::class, 'index'])->name('Orchestra.index');
+/***Route::get('/', function (){
+    return redirect('orchestras');
+
+});****/
+Route::get('members', [MembersController::class, 'index'])->name('members.index');
+Route::get('orchestras', [OrchestrasController::class, 'index'])->name('orchestras.index');
