@@ -15,7 +15,8 @@ class OrchestrasController extends Controller
     public function index()
     {
         
-        return Orchestra::all()->toArray();
+        $o = Orchestra::all()->toArray();
+        return view('orchestras.index')->with('orchestras', $o);
     }
 
     /**
