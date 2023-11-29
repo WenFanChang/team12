@@ -8,7 +8,6 @@
 <h1>列出所有團員</h1>
 
 @for($i=0; $i<count($members); $i++)
-@for($i=0; $i<count($members); $i++)
     {{ $members[$i]['name'] }} <br/>
     {{ $members[$i]['position'] }} <br/>
     {{ $members[$i]['height'] }} <br/>
