@@ -1,10 +1,8 @@
-<html>
+@extends('app')
 
-<head>
-    <title>列出所有團員</title>
-<head>
+@section('title', '流行樂團網站 - 列出所有團員')
 
-<body>
+@section('band_contents')
 <h1>列出所有團員</h1>
 <table>
     <tr>
@@ -38,5 +36,4 @@
         </tr>
     @endfor
 </table>
-</body>
-</html>
+@endsection
