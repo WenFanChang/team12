@@ -14,8 +14,7 @@ class MembersController extends Controller
      */
     public function index()
     {
-        //
-        $members = Member::all()->toArry();
+        $members = Member::all()->toArray();
         return view('members.index')->with('members', $members);
         
     }
@@ -49,7 +48,7 @@ class MembersController extends Controller
      */
     public function show($id)
     {
-        //
+        return Member::findOrfail($id)->toArray();
     }
 
     /**
@@ -60,7 +59,7 @@ class MembersController extends Controller
      */
     public function edit($id)
     {
-        //
+        return Member::findOrfail($id)->toArray();
     }
 
     /**
