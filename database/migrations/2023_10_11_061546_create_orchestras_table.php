@@ -20,7 +20,6 @@ class CreateOrchestrasTable extends Migration
             $table->string('city')->comment('公司位置');
             $table->string('style')->comment('曲風類別');
             $table->timestamps();
-            //$table->string("test");
         });
     }
 
