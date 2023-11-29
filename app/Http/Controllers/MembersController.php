@@ -49,7 +49,7 @@ class MembersController extends Controller
      */
     public function show($id)
     {
-        //
+        return Member::findOrfail($id)->toArray();
     }
 
     /**
@@ -60,7 +60,7 @@ class MembersController extends Controller
      */
     public function edit($id)
     {
-        //
+        return Member::findOrfail($id)->toArray();
     }
 
     /**

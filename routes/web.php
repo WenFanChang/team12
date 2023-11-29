@@ -28,4 +28,16 @@ Route::get('/', function (){
 
 });****/
 Route::get('members', [MembersController::class, 'index'])->name('members.index');
+
+Route::get('members/{id}', [MembersController::class, 'show'])->where('id', '[0-9]+')->name('members.show');
+
+Route::get('members/{id}/edit', [MembersController::class, 'edit'])->where('id', '[0-9]+')->name('members.edit');
+
+
+
 Route::get('orchestras', [OrchestrasController::class, 'index'])->name('orchestras.index');
+
+Route::get('orchestras/{id}', [OrchestrasController::class, 'show'])->where('id', '[0-9]+')->name('orchestras.show');
+
+Route::get('orchestras/{id}/edit', [OrchestrasController::class, 'edit'])->where('id', '[0-9]+')->name('orchestras.edit');
+
