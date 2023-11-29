@@ -48,7 +48,7 @@ class OrchestrasController extends Controller
      */
     public function show($id)
     {
-        //
+        return Orchestra::findOrfail($id)->toArray();
     }
 
     /**
@@ -59,7 +59,7 @@ class OrchestrasController extends Controller
      */
     public function edit($id)
     {
-        //
+        return Orchestra::findOrfail($id)->toArray();
     }
 
     /**
