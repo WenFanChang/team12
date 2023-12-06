@@ -15,15 +15,15 @@
         <th>操作2</th>
         <th>操作3</th>
     </tr>
-    @for($i=0; $i<count($orchestras); $i++)
+    @foreach ($orchestras as $ orchestra)
         <tr>
-            <td>{{ $orchestras[$i]['id'] }} </td>
-            <td>{{ $orchestras[$i]['name'] }} </td>
-            <td>{{ $orchestras[$i]['company'] }} </td>
-            <td>{{ $orchestras[$i]['city'] }} </td>
-            <td>{{ $orchestras[$i]['style'] }} </td>
-            <td><a href="{{ route('orchestras.show', ['id'=>$orchestras[$i]['id']]) }}">顯示</a></td>
-            <td><a href="{{ route('orchestras.edit', ['id'=>$orchestras[$i]['id']]) }}">修改</a></td>
+            <td>{{ $orchestras->id }} </td>
+            <td>{{ $orchestras->name }} </td>
+            <td>{{ $orchestras->company }} </td>
+            <td>{{ $orchestras->city }} </td>
+            <td>{{ $orchestras->style }} </td>
+            <td><a href="{{ route('orchestras.show', ['id'=>$orchestras->id]) }}">顯示</a></td>
+            <td><a href="{{ route('orchestras.edit', ['id'=>$orchestras->id]) }}">修改</a></td>
             <td>刪除</td>
         </tr>
     @endfor
