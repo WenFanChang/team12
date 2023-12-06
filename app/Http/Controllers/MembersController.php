@@ -15,7 +15,7 @@ class MembersController extends Controller
     public function index()
     {
         //
-        $members = Member::findOrFail($id);
+        $members = Member::all($id);
         return view('members.index')->with('members', $members);
     }
 
