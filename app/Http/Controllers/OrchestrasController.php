@@ -51,8 +51,9 @@ class OrchestrasController extends Controller
         //return Orchestra::findOrfail($id)->toArray();
         //從model拿資料
         $orchestra = Orchestra::findOrFail($id);
+        $members = $orchestra->members;
         //把資料送給 view
-        return view('orchestras.show')->with('orchestra', $orchestra);
+        return view('orchestras.show', ['orchestra'=>$orchestra, 'members'=>$members]);
     }
 
     /**
@@ -86,6 +87,8 @@ class OrchestrasController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $orchestra = Orchestra::findOrFail($id);
+        $orchestra->delete();
+        return redirect('orchestras');
     }
 }

@@ -26,7 +26,7 @@
         <tr>
             <td>{{ $member->id }}</td>
             <td>{{ $member->name }}</td>
-            <td>{{ $member->oid }}</td>
+            <td>{{ $member->orchestra->name }}</td>
             <td>{{ $member->position }}</td>
             <td>{{ $member->height }}</td>
             <td>{{ $member->weight }}</td>
@@ -35,7 +35,13 @@
             <td>{{ $member->nationality }}</td>
             <td><a href="{{ route('members.show', ['id'=>$member->id]) }}">顯示</a></td>
             <td><a href="{{ route('members.edit', ['id'=>$member->id]) }}">修改</a></td>
-            <td>刪除</td>
+            <td>
+                <form action="{{ url('/members/delete', ['id' => $member->id]) }}" method="post">
+                    <input class="btn btn-default" type="submit" value="刪除" />
+                    @method('delete')
+                    @csrf
+                </form>
+            </td>
         </tr>
     @endforeach
 </table>

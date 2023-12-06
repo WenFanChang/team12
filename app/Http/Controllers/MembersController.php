@@ -87,6 +87,8 @@ class MembersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $member = Member::findOrFail($id);
+        $member->delete();
+        return redirect('members');
     }
 }
