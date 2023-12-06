@@ -1,8 +1,8 @@
 @extends('app')
 
-@section('title', '顯示特定球員')
+@section('title', '顯示特定樂團')
 
-@section('band_theme', '你所選取的球員資料')
+@section('band_theme', '你所選取的樂團資料')
 
 @section('band_contents')
 樂團編號:{{ $orchestra->id }}<br/>
