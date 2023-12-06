@@ -14,7 +14,7 @@ class MembersController extends Controller
      */
     public function index()
     {
-        $members = Member::all()->toArray();
+        $members = Member::all();
         return view('members.index')->with('members', $members);
         
     }
@@ -48,7 +48,8 @@ class MembersController extends Controller
      */
     public function show($id)
     {
-        return Member::findOrfail($id)->toArray();
+        $member = Member::findOrfail($id);
+        return view('members.show')->with('member',$member);
     }
 
     /**
@@ -82,6 +83,8 @@ class MembersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $member=Member::findOrFail(id);
+        $member->delete();
+        return redirect('members');
     }
 }

@@ -24,7 +24,7 @@ class CreateMembersTable extends Migration
             $table->integer("year")->unsigned()->nullable()->comment('年資');
             $table->integer("age")->unsigned()->default(16)->comment('年齡');
             $table->string("nationality")->default('韓國')->comment('國籍');
-            //$table->string("test");
+            
 
             $table->timestamps();
         });

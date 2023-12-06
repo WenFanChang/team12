@@ -19,18 +19,25 @@
 
 
     
-    @for(i= 0;$i<count($orchestras); $i++)
+    @foreach ($orchestras as $orchestra)
         <tr>
-            <td> {{ $orchestras[$i]['id'] }}</td>
-            <td> {{ $orchestras[$i]['name'] }}</td>
-            <td> {{ $orchestras[$i]['company'] }}</td>
-            <td>{{ $orchestras[$i]['city'] }}</td>
-            <td> {{ $orchestras[$i]['style'] }}</td>
-            <td><a herf="{{ route('orchestras.show', ['id'=>$orchestras[$i]['id']]) }}">顯示</a></td>
-            <td><a herf="{{ route('orchestras.edit', ['id'=>$orchestras[$i]['id']]) }}">修改</a></td>
-            <td>刪除</td>
+            <td> {{ $orchestra->id }}</td>
+            <td> {{ $orchestra->name }}</td>
+            <td> {{ $orchestra->company }}</td>
+            <td>{{ $orchestra->city }}</td>
+            <td> {{ $orchestra->style }}</td>
+            <td><a href="{{ route('orchestras.show', ['id'=>$orchestra->id]) }}">顯示</a></td>
+            <td><a href="{{ route('orchestras.edit', ['id'=>$orchestra->id]) }}">修改</a></td>
+            <td>
+                <from action = "{{url(/orchestra/delet',[id => $orchestra->id}}" method="post">
+                    <input class="btn btn-default" type="submit"vaule="刪除"/>
+                    @method('delete')
+                    @csrf
+
+
+            </td>
         </tr>
-    @endfor
+    @endforeach
 
 </table>
 

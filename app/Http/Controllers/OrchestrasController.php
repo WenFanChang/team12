@@ -14,9 +14,8 @@ class OrchestrasController extends Controller
      */
     public function index()
     {
-        
-        $o = Orchestra::all()->toArray();
-        return view('orchestras.index')->with('orchestras', $o);
+        $orchestras = orchestra::all();
+        return view('orchestras.index')->with('orchestras', $orchestras);
         
     }
 
@@ -49,7 +48,9 @@ class OrchestrasController extends Controller
      */
     public function show($id)
     {
-        return Orchestra::findOrfail($id)->toArray();
+        $orchestra = Orchestra::findOrfail($id);
+        $members = $orchestra->members;
+        return view('orchestras.show',['orchestra'=>$orchestra,'members'=>$members]);
     }
 
     /**
@@ -83,6 +84,8 @@ class OrchestrasController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $orchestra=Orchestra::findOrFail(id);
+        $orchestra->delete();
+        return redirect('orchestra');
     }
 }
