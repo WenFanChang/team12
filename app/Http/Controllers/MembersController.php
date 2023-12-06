@@ -15,8 +15,8 @@ class MembersController extends Controller
     public function index()
     {
         //
-        $m = Member::all()->toArray();
-        return view('Members.index')->with('members', $m);
+        $members = Member::all();
+        return view('Members.index')->with('members', $members);
 
     }
 
@@ -49,7 +49,11 @@ class MembersController extends Controller
      */
     public function show($id)
     {
-        return Member::findOrfail($id)->toArray();
+        //return Member::findOrfail($id)->toArray();
+        //從model拿資料
+        $member = Member::findOrFail($id);
+        //把資料送給 view
+        return view('members.show')->with('member', $member);
     }
 
     /**
