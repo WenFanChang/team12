@@ -19,21 +19,21 @@
         <th>操作2</th>
         <th>操作3</th>
     </tr>
-    @for($i=0; $i<count($members); $i++)
+    @foreach ($members as $member)
         <tr>
-            <td>{{ $members[$i]['id'] }} </td>
-            <td>{{ $members[$i]['name'] }} </td>
-            <td>{{ $members[$i]['oid'] }} </td>
-            <td>{{ $members[$i]['position'] }} </td>
-            <td>{{ $members[$i]['height'] }} </td>
-            <td>{{ $members[$i]['height'] }} </td>
-            <td>{{ $members[$i]['year'] }} </td>
-            <td>{{ $members[$i]['age'] }} </td>
-            <td>{{ $members[$i]['nationality'] }} </td>
-            <td><a href="{{ route('members.show', ['id'=>$members[$i]['id']]) }}">顯示</a></td>
-            <td><a href="{{ route('members.edit', ['id'=>$members[$i]['id']]) }}">修改</a></td>
+            <td>{{ $member->id }} </td>
+            <td>{{ $member->name }} </td>
+            <td>{{ $member->oid }} </td>
+            <td>{{ $member->position }} </td>
+            <td>{{ $member->height }} </td>
+            <td>{{ $member->height }} </td>
+            <td>{{ $member->year }} </td>
+            <td>{{ $member->age }} </td>
+            <td>{{ $member->nationality }} </td>
+            <td><a href="{{ route('members.show', ['id'=>$member->id]) }}">顯示</a></td>
+            <td><a href="{{ route('members.edit', ['id'=>$member->id]) }}">修改</a></td>
             <td>刪除</td>
         </tr>
-    @endfor
+    @endforeach
 </table>
 @endsection
