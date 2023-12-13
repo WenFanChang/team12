@@ -5,6 +5,11 @@
 
 @section('band_contents')
 <h1> 列出所有樂團 </h1>
+<div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-1">
+    <a href="{{ route('orchestras.create') }}">新增樂團</a>
+    <a href="{{ route('orchestras.index') }} ">所有樂團</a>
+
+</div>
 
 <table>
     <tr>
