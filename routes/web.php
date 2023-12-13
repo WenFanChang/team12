@@ -33,6 +33,8 @@ Route::get('members', [MembersController::class, 'index'])->name('members.index'
 Route::get('members/{id}', [MembersController::class, 'show'])->where('id', '[0-9]+')->name('members.show');
 //修改單一隊員資料
 Route::get('members/{id}/edit', [MembersController::class, 'edit'])->where('id', '[0-9]+')->name('members.edit');
+//修改團員
+Route::get('members/update/{id}', [MembersController::class, 'update'])->where('id', '[0-9]+')->name('members.update');
 //刪除單一隊員資料
 Route::delete('members/delete/{id}', [MembersController::class, 'destroy'])->where('id', '[0-9]+')->name('members.destroy');
 //新增團員表單

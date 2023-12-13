@@ -60,7 +60,8 @@ class MembersController extends Controller
      */
     public function edit($id)
     {
-        return Member::findOrfail($id)->toArray();
+        $member = Member::findOrFail($id);
+        return view('members.edit', ['member' =>$member]);
     }
 
     /**
