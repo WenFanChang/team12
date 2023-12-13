@@ -16,7 +16,8 @@ class Orchestra extends Model
         'style',
         'created_at'
     ];
-    public function players()
+    
+    public function members()
     {
         return $this->hasMany('App\Models\Member', 'oid');
     }

@@ -36,7 +36,7 @@ Route::get('members/{id}/edit', [MembersController::class, 'edit'])->where('id',
 //刪除單一隊員資料
 Route::delete('members/delete/{id}', [MembersController::class, 'destroy'])->where('id', '[0-9]+')->name('members.destroy');
 //新增團員表單
-Route::delete('members/create', [MembersController::class, 'create'])->name('members.create');
+Route::get('members/create', [MembersController::class, 'create'])->name('members.create');
 
 
 
@@ -47,6 +47,8 @@ Route::get('orchestras/{id}', [OrchestrasController::class, 'show'])->where('id'
 
 Route::get('orchestras/{id}/edit', [OrchestrasController::class, 'edit'])->where('id', '[0-9]+')->name('orchestras.edit');
 
+Route::get('orchestras/{id}', [OrchestrasController::class, 'update'])->where('id', '[0-9]+')->name('orchestras.update');
+
 Route::delete('orchestras/delete/{id}', [OrchestrasController::class, 'destroy'])->where('id', '[0-9]+')->name('orchestras.destroy');
 
-Route::delete('orchestras/create', [OrchestrasController::class, 'create'])->name('orchestras.create');
+Route::get('orchestras/create', [OrchestrasController::class, 'create'])->name('orchestras.create');
