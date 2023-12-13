@@ -4,7 +4,7 @@
 
 @section('band_contents')
     <title>列出所有團員</title>
-</head>
+
 <table>
     <tr>
         <td>團體名稱</td>
@@ -29,11 +29,11 @@
             <td><a href="{{ route('orchestras.show', ['id'=>$orchestra->id]) }}">顯示</a></td>
             <td><a href="{{ route('orchestras.edit', ['id'=>$orchestra->id]) }}">修改</a></td>
             <td>
-                <from action = "{{url(/orchestra/delet',[id => $orchestra->id}}" method="post">
-                    <input class="btn btn-default" type="submit"vaule="刪除"/>
+                <form action = "{{ url('/orchestras/delete', ['id' => $orchestra->id]) }}" method="post">
+                    <input class="btn btn-default" type="submit" value="刪除"/>
                     @method('delete')
                     @csrf
-
+                </form>
 
             </td>
         </tr>

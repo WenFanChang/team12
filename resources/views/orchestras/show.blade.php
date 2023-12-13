@@ -5,10 +5,10 @@
 @section('band_theme','您所選取的團員資料')
 @section('band_contents')
 
-團員姓名{{$orchestras->name }}<br/>
-團隊編號{{$orchestras->company }}<br/>
-團隊位置{{$orchestras->city }}<br/>
-團員身高{{$orchestras->style }}<br/>
+團員姓名{{$orchestra->name }}<br/>
+團隊編號{{$orchestra->company }}<br/>
+團隊位置{{$orchestra->city }}<br/>
+團員身高{{$orchestra->style }}<br/>
 
 <h1>列出所有團員</h1>
 

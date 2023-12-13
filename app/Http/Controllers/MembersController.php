@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Member;
+use App\Models\Orchestra;
 
 class MembersController extends Controller
 {
@@ -26,7 +27,8 @@ class MembersController extends Controller
      */
     public function create()
     {
-        //
+        $orchestras = Orchestra::orderBy('orchestras.id','asc')->pluck('orchestras.name','orchestras.id');
+       return view('members.create',['orchestras' =>$orchestras,'orchestraSelected'=>null]);
     }
 
     /**
@@ -37,7 +39,38 @@ class MembersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $name =$request->input('name');
+        $oid =$request->input('oid');
+        $position =$request->input('position');
+        $height =$request->input('height');
+        $weight =$request->input('weight');
+        $year =$request->input('year');
+        $age =$request->input('age');
+        $nationality =$request->input('nationality');
+        
+
+        $member= Member::create([
+            'name'=>$name,
+            'oid'=>$oid,
+            'position'=>$position,
+            'height'=>$height,
+            'weight'=>$weight,
+            'year'=>$year,
+            'age'=>$age,
+            'nationality'=>$nationality]);
+
+            return redirect('members');
+
+
+        
+
+
+
+
+
+
+
+
     }
 
     /**
@@ -60,7 +93,10 @@ class MembersController extends Controller
      */
     public function edit($id)
     {
-        return Member::findOrfail($id)->toArray();
+       $member = Member::findOrFail($id);
+       $orchestras= Orchestra::orderBy('orchestras.id','asc')->pluck('orchestras.name','orchestras.id');
+       $selected_tags= $member->orchestra->id;
+       return view('members.edit', ['member'=>$member ,'orchestras'=>$orchestras,'orchestraSelected'=>$selected_tags   ]);
     }
 
     /**
@@ -72,9 +108,22 @@ class MembersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-    }
+       $member = Member:: findOrfail($id);
+       $member->name = $request->input('name');
+       $member->oid = $request->input('oid');
+       $member->position = $request->input('position');
+       $member->height=$request->input('height');
+       $member->weight=$request->input('weight');
+       $member->year=$request->input('year');
+       $member->age = $request->input('age');
+       $member->nationality=$request->input('nationality');
+       $member->save();
+       return redirect('members');
 
+
+
+
+    }
     /**
      * Remove the specified resource from storage.
      *
@@ -83,7 +132,7 @@ class MembersController extends Controller
      */
     public function destroy($id)
     {
-        $member=Member::findOrFail(id);
+        $member = Member::findOrFail($id);
         $member->delete();
         return redirect('members');
     }
