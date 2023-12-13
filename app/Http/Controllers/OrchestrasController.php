@@ -27,7 +27,7 @@ class OrchestrasController extends Controller
      */
     public function create()
     {
-        //
+        return view('orchestra.create');
     }
 
     /**
@@ -62,7 +62,8 @@ class OrchestrasController extends Controller
      */
     public function edit($id)
     {
-        return Orchestra::findOrfail($id)->toArray();
+        $orchestra = Orchestra::findOrFail($id);
+        return view('orchestras.edit', ['orchestra' =>$orchestra]);
     }
 
     /**
