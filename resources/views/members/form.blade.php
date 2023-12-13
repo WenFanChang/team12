@@ -4,7 +4,7 @@
 </div>
 <div class="form-group">
     {!! Form::label('oid', '所屬樂團：') !!}
-    <!-- 待設計一下拉式選單 -->
+    {!! Form::select('oid', $orchestras, $orchestraSelected, ['class' => 'form-control']) !!}
 </div>
 <div class="form-group">
     {!! Form::label('position','團員位置： ') !!}

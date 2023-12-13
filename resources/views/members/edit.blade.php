@@ -6,6 +6,6 @@
 
 @section('band_contents')
     {!! Form::model($member, ['method'=>'PATCH', 'action'=>['\App\Http\Controllers\MembersController@update', $member->id]]) !!}
-    @include('members.form', ['submitButtonText'=>"更新球員資料"])
+    @include('members.form', ['submitButtonText'=>"更新團員資料"])
     {!! Form::close() !!}
 @endsection
