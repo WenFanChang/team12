@@ -26,7 +26,7 @@
             <td>{{ $member->orchestra->name }} </td>
             <td>{{ $member->position }} </td>
             <td>{{ $member->height }} </td>
-            <td>{{ $member->height }} </td>
+            <td>{{ $member->weight }} </td>
             <td>{{ $member->year }} </td>
             <td>{{ $member->age }} </td>
             <td>{{ $member->nationality }} </td>

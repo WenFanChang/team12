@@ -2,7 +2,7 @@
 
 @section('title','顯示特定團員')
 
-@section('band_them','你所選取的團員資料')
+@section('band_theme','你所選取的團員資料')
 
 @section('band_contents')
 <h1>列出所有團員</h1>

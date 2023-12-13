@@ -87,6 +87,6 @@ class OrchestrasController extends Controller
     {
         $orchestra = Orchestra::findOrFail($id);
         $orchestra->delete();
-        return redirect('orchestra');
+        return redirect('orchestras');
     }
 }
