@@ -41,6 +41,9 @@ Route::get('members/create', [MembersController::class, 'create'])->name('member
 Route::get('members/{id}/edit', [MembersController::class, 'edit'])->where('id', '[0-9]+')->name('members.edit');
 // 修改團員資料
 Route::patch('members/update/{id}', [MembersController::class, 'update'])->where('id', '[0-9]+')->name('members.update');
+//
+Route::post('members/store', [MembersController::class, 'store'])->where('id', '[0-9]+')->name('members.store');
+
 
 
 
@@ -57,6 +60,10 @@ Route::get('orchestras/create', [OrchestrasController::class, 'create'])->name('
 Route::get('orchestras/{id}/edit', [OrchestrasController::class, 'edit'])->where('id', '[0-9]+')->name('orchestras.edit');
 //修改樂團資料
 Route::patch('orchestras/update/{id}', [OrchestrasController::class, 'update'])->where('id', '[0-9]+')->name('orchestras.update');
+//儲存新樂團資料
+Route::post('orchestras/store', [OrchestrasController::class, 'store'])->name('orchestras.store');
+
+
 
 
 

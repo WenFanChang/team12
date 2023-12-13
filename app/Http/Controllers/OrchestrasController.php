@@ -37,7 +37,19 @@ class OrchestrasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $name = $request->input('name');
+        $company = $request->input('company');
+        $city = $request->input('city');
+        $style = $request->input('style');
+
+        Orchestra::create([
+            'name' => $name,
+            'company' => $company,
+            'city' => $city,
+            'style' => $style
+        ]);
+
+        return redirect('orchestras');
     }
 
     /**
@@ -78,7 +90,15 @@ class OrchestrasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $orchestra = Orchestra::findOrFail($id);
+
+        $orchestra->name = $request->input('name');
+        $orchestra->company = $request->input('company');
+        $orchestra->city = $request->input('city');
+        $orchestra->style = $request->input('style');
+        $orchestra->save();
+
+        return redirect('orchestras');
     }
 
     /**
