@@ -27,7 +27,7 @@ class MembersController extends Controller
      */
     public function create()
     {
-        //
+        return view('members.create');
     }
 
     /**
