@@ -47,7 +47,7 @@ Route::get('orchestras/{id}', [OrchestrasController::class, 'show'])->where('id'
 
 Route::get('orchestras/{id}/edit', [OrchestrasController::class, 'edit'])->where('id', '[0-9]+')->name('orchestras.edit');
 
-Route::get('orchestras/{id}', [OrchestrasController::class, 'update'])->where('id', '[0-9]+')->name('orchestras.update');
+Route::get('orchestras/update/{id}', [OrchestrasController::class, 'update'])->where('id', '[0-9]+')->name('orchestras.update');
 
 Route::delete('orchestras/delete/{id}', [OrchestrasController::class, 'destroy'])->where('id', '[0-9]+')->name('orchestras.destroy');
 
