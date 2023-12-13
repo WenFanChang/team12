@@ -26,7 +26,7 @@ class OrchestrasController extends Controller
      */
     public function create()
     {
-        return view('orchestra.create');
+        return view('orchestras.create');
     }
 
     /**
@@ -50,7 +50,7 @@ class OrchestrasController extends Controller
                 'style' => $style
             ]);
     
-            return redirect('orchestra');
+            return redirect('orchestras');
     }
 
     /**
@@ -94,7 +94,7 @@ class OrchestrasController extends Controller
         $orchestra->$city = $request->input('city');
         $orchestra->$style = $request->input('style');
         $orchestra->save();
-        return redirect('orchestra');
+        return redirect('orchestras');
     }
 
     /**
@@ -107,6 +107,6 @@ class OrchestrasController extends Controller
     {
         $orchestra = Orchestra::findOrFail($id);
         $orchestra->delete();
-        return redirect('orchestra');
+        return redirect('orchestras');
     }
 }

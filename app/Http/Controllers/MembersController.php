@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Member;
+use App\Models\Orchestra;
 
 class MembersController extends Controller
 {
@@ -26,7 +27,8 @@ class MembersController extends Controller
      */
     public function create()
     {
-        return view('members.create');
+        $orchestra = Team::orderBy('orchestra.id', 'asc')->pluck('orchestra.name', 'orchestra.id');
+        return view('members.create', ['orchestra' =>$orchestra, 'orchestraSelected' => null]);
     }
 
     /**
