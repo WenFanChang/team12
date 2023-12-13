@@ -27,8 +27,8 @@ class MembersController extends Controller
      */
     public function create()
     {
-        $orchestra = Team::orderBy('orchestra.id', 'asc')->pluck('orchestra.name', 'orchestra.id');
-        return view('members.create', ['orchestra' =>$orchestra, 'orchestraSelected' => null]);
+        $orchestras = Orchestra::orderBy('orchestras.id', 'asc')->pluck('orchestras.name', 'orchestras.id');
+        return view('members.create', ['orchestras' =>$orchestra, 'orchestraSelected' => null]);
     }
 
     /**
@@ -40,7 +40,7 @@ class MembersController extends Controller
     public function store(Request $request)
     {
         $name = $request->input('name');
-        $tid = $request->input('tid');
+        $oid = $request->input('oid');
         $position = $request->input('position');
         $height = $request->input('height');
         $weight = $request->input('weight');
@@ -50,7 +50,7 @@ class MembersController extends Controller
 
         $member = Member::create([
             'name'=>$name,
-            'tid'=>$tid,
+            'oid'=>$oid,
             'position'=>$position,
             'height'=>$height,
             'weight'=>$weight,
@@ -81,7 +81,7 @@ class MembersController extends Controller
     public function edit($id)
     {
         $member = Member::findOrFail($id);
-        $orchestra = Orchestra::orderBy('orchestra.id', 'asc')->pluck('orchestra.name', 'orchestra.id');
+        $orchestras = Orchestra::orderBy('orchestras.id', 'asc')->pluck('orchestras.name', 'orchestras.id');
         $selected_tags = $member->orchestra->id;
         return view('members.edit', ['member' =>$member, 'orchestras' => $orchestras, 'orchestraSelected' => $selected_tags]);
     }
@@ -97,7 +97,7 @@ class MembersController extends Controller
     {
         $member = Member::findOrFail($id);
         $member->name = $request->input('name');
-        $member->tid = $request->input('tid');
+        $member->oid = $request->input('oid');
         $member->position = $request->input('position');
         $member->height = $request->input('height');
         $member->weight = $request->input('weight');

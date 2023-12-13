@@ -39,6 +39,8 @@ Route::patch('members/update/{id}', [MembersController::class, 'update'])->where
 Route::delete('members/delete/{id}', [MembersController::class, 'destroy'])->where('id', '[0-9]+')->name('members.destroy');
 //新增團員表單
 Route::get('members/create', [MembersController::class, 'create'])->name('members.create');
+//儲存團員表單
+Route::post('members/store', [MembersController::class, 'store'])->name('members.store');
 
 
 Route::get('orchestras', [OrchestrasController::class, 'index'])->name('orchestras.index');
@@ -52,3 +54,5 @@ Route::patch('orchestras/update/{id}', [OrchestrasController::class, 'update'])-
 Route::delete('orchestras/delete/{id}', [OrchestrasController::class, 'destroy'])->where('id', '[0-9]+')->name('orchestras.destroy');
 
 Route::get('orchestras/create', [OrchestrasController::class, 'create'])->name('orchestras.create');
+
+Route::post('orchestras/store', [OrchestrasController::class, 'store'])->name('orchestras.store');

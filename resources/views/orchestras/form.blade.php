@@ -14,3 +14,6 @@
     {!! Form::label('style', '曲風類別:') !!}
     {!! Form::text('style', null, ['class' => 'form-control']) !!}
 </div>
+<div class="form-group">
+    {!! Form::submit($submitButtonText, ['class' => 'btn btn-primary form-control']) !!}
+</div>

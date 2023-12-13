@@ -72,7 +72,7 @@ class OrchestrasTableSeeder extends Seeder
 
     public function run()
     {
-        for ($i=0; $i<500; $i++) {
+        for ($i=0; $i<25; $i++) {
             $name = $this->generateRandomName();
             $company = $this->generateRandomCompany();
             $city = $this->generateRandomCity();

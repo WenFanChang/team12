@@ -31,7 +31,7 @@
         <tr>
             <td>{{ $member->id}}</td>
             <td>{{ $member->name}}</td>
-            <td>{{ $member->orchestra-name}}</td>
+            <td>{{ $member->orchestra->name}}</td>
             <td>{{ $member->position}}</td>
             <td>{{ $member->height}}</td>
             <td>{{ $member->weight}}</td>

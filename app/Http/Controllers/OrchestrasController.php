@@ -50,7 +50,7 @@ class OrchestrasController extends Controller
             'style' => $style
         ]);
 
-        return redirect('orchestra');
+        return redirect('orchestras');
     }
 
     /**
@@ -88,12 +88,12 @@ class OrchestrasController extends Controller
     public function update(Request $request, $id)
     {
         $orchestra = Orchestra::findOrFail($id);
-        $orchestra->$name = $request->input('name');
-        $orchestra->$company = $request->input('company');
-        $orchestra->$city = $request->input('city');
-        $orchestra->$style = $request->input('style');
+        $orchestra->name = $request->input('name');
+        $orchestra->company = $request->input('company');
+        $orchestra->city = $request->input('city');
+        $orchestra->style = $request->input('style');
         $orchestra->save();
-        return redirect('orchestra');
+        return redirect('orchestras');
     }
 
     /**

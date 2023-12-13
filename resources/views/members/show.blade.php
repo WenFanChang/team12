@@ -16,6 +16,4 @@
 團員年齡:{{ $member->age }}<br/>
 團員國籍:{{ $member->nationality }}<br/>
 
-<h1>{{ $member->name }}的所有球員</h1>
-
 @endsection
