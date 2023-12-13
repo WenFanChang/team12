@@ -76,8 +76,8 @@ class OrchestrasController extends Controller
      */
     public function edit($id)
     {
-        $team = Team::findOrFail($id);
-        return view('teams.edit', ['team'=>$team]);
+        $orchestra = Orchestra::findOrFail($id);
+        return view('orchestras.edit', ['orchestra'=>$orchestra]);
      
     }
 
