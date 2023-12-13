@@ -41,7 +41,13 @@
             <td>{{ $orchestra->style }} </td>
             <td><a href="{{ route('orchestras.show', ['id'=>$orchestra->id]) }}">顯示</a></td>
             <td><a href="{{ route('orchestras.edit', ['id'=>$orchestra->id]) }}">修改</a></td>
-            <td>刪除</td>
+            <td>
+                <form action="{{ url('/orchestras/delete', ['id' => $orchestra->id]) }}" method="post">
+                    <input class="btn btn-default" type="submit" value="刪除" />
+                    @method('delete')
+                    @csrf
+                </form>
+            </td>
         </tr>
     @endforeach
 </table>

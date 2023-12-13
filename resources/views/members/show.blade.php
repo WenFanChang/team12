@@ -8,7 +8,7 @@
 <h1>列出所有團員</h1>
 團員編號:{{ $member->id }}<br/>
 人員名稱:{{ $member->name }}<br/>
-團體名稱:{{ $member->oid }}<br/>
+所屬團體:{{ $member->orchestra->name }}<br/>
 團員位置:{{ $member->position }}<br/>
 團員身高:{{ $member->height }}<br/>
 團員體重:{{ $member->weight }}<br/>

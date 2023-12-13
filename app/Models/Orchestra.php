@@ -17,5 +17,15 @@ class Orchestra extends Model
         'created_at'
     ];
 
+    public function players()
+    {
+        return $this->hasMany('App\Models\Member', 'oid');
+    }
+
+    public function delete()
+    {
+        $this->members()->delete();
+        return parent::delete();
+    }
 
 }

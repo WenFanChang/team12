@@ -19,4 +19,9 @@ class Member extends Model
         'age',
         'nationality'
     ];
+
+    public function Orchestra()
+    {
+        return $this->belongsTo('App\Models\Orchestra', 'oid', 'id');
+    }
 }
