@@ -3,8 +3,10 @@
 @section('title', '流行樂團網站 - 列出所有團員')
 
 @section('band_contents')
-<h1>列出所有團員</h1>
-
+<div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-1">
+    <a href = "{{ route('members.create') }} ">新增團員</a>
+    <a href = "{{ route('members.index') }} ">所有團員</a>
+</div>
 <table>
     <tr>
         <th>編號</th>

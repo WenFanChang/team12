@@ -1,5 +1,5 @@
 <div class="form-group">
-    {!! Form::label('name',' 團員姓名:')!!}
+    {!! Form::label('name',' 團員名稱:')!!}
     {!! Form::text('name',null,['class' => 'form-control'])!!}
 </div>
 <div class="form-group">
@@ -11,12 +11,12 @@
     {!! Form::text('position',null,['class'=>'form-control']) !!}
 </div>
 <div class="from-group">
-    {!! Form::label('weight','團員體重:') !!}
-    {!! Form::text('weight',null,['class'=>'form-control']) !!}
-</div>
-<div class="from-group">
     {!! Form::label('height','團員身高:') !!}
     {!! Form::text('height',null,['class'=>'form-control']) !!}
+</div>
+<div class="from-group">
+    {!! Form::label('weight','團員體重:') !!}
+    {!! Form::text('weight',null,['class'=>'form-control']) !!}
 </div>
 <div class="from-group">
     {!! Form::label('year','年資:') !!}

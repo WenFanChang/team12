@@ -3,9 +3,10 @@
 
 @section('title',  '建立團員表單')
 
-@section('team12',  '建立團員表單')
-@section('team12_contents')
-    {!! Form::open(['url' =>'players/store'])!!}
+@section('band_theme',  '建立團員表單')
+@section('band_contents')
+    @include('massage.list')
+    {!! Form::open(['url' =>'members/store'])!!}
     @include('members.form',['submitButtonText'=>"新增團員資料"])
     {!! Form::close() !!}
 @endsection

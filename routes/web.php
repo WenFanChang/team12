@@ -33,15 +33,14 @@ Route::get('members/{id}', [MembersController::class, 'show'])->where('id','[0-9
 
 Route::get('members/{id}/edit', [MembersController::class, 'edit'])->where('id','[0-9]+')->name('members.edit');
 
+Route::patch('members/update/{id}', [MembersController::class, 'update'])->where('id', '[0-9]+')->name('members.update');
+
 Route::delete('members/delete/{id}', [MembersController::class, 'destroy'])->where('id','[0-9]+')->name('members.destroy');
 
 Route::get('members/create', [MembersController::class, 'create'])->name('members.create');
 
-Route::get('members/{id}/edit', [MembersController::class, 'edit'])->where('id', '[0-9]+')->name('members.edit');
+Route::post('members/store', [MembersController::class, 'store'])->name('members.store');
 
-Route::patch('members/update/{id}', [MembersController::class, 'update'])->where('id', '[0-9]+')->name('members.update');
-
-Route::post('members/store', [MembersController::class, 'store'])->where('id', '[0-9]+')->name('members.store');
 
 //顯示單筆
 
@@ -51,13 +50,13 @@ Route::get('orchestras', [OrchestrasController::class, 'index'])->name('orchestr
 
 Route::get('orchestras/{id}', [OrchestrasController::class, 'show'])->where('id','[0-9]+')->name('orchestras.show');
 
-Route::delete('orchestras/delete/{id}', [OrchestrasController::class, 'destroy'])->where('id','[0-9]+')->name('orchestras.destroy');
-
-Route::get('orchestras/create', [OrchestrasController::class, 'create'])->name('orchestras.create');
-
 Route::get('orchestras/{id}/edit', [OrchestrasController::class, 'edit'])->where('id', '[0-9]+')->name('orchestras.edit');
 
 Route::patch('orchestras/update/{id}', [OrchestrasController::class, 'update'])->where('id', '[0-9]+')->name('orchestras.update');
+
+Route::delete('orchestras/delete/{id}', [OrchestrasController::class, 'destroy'])->where('id','[0-9]+')->name('orchestras.destroy');
+
+Route::get('orchestras/create', [OrchestrasController::class, 'create'])->name('orchestras.create');
 
 Route::post('orchestras/store', [OrchestrasController::class, 'store'])->name('orchestras.store');
 
