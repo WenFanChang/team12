@@ -48,10 +48,9 @@ class MembersController extends Controller
             'height' => 'nullable',
             //'weight' => 'required|numeric|min:40|max:120|lt:height', // lt = less than, lg = larger than
             'weight' => 'nullable',
-            //'year' => 'required|numeric|min:0|max:50',
-            'year' => 'nullable', 
-            'age' => 'required|numeric|min:15|max:70',
-            'nationality' => 'required|string|min:2|max:191'
+            'year' => 'required|numeric|min:1|max:15',
+            'age' => 'required|numeric|min:16|max:30',
+            'nationality' => 'required|string|min:2|max:191',
             ],//驗證規則
             [
                 "name.required" => "團員名稱 為必填",
@@ -65,13 +64,13 @@ class MembersController extends Controller
                 "weight.required" => "團員體重 為必填",
                 "weight.numeric" => "團員身高 必須為數字",
                 "weight.min" => "團員體重 範圍必須介於40~120之間",
-                "weight.max" => "團員體重 範圍必須介於150~220之間",
+                "weight.max" => "團員體重 範圍必須介於150~220之間",*/
                 "year.required" => "團員年資 為必填",
-                "year.min" => "團員年資 範圍必須介於0~20之間",
-                "year.max" => "團員年資 範圍必須介於0~20之間",*/
+                "year.min" => "團員年資 範圍必須介於1~15之間",
+                "year.max" => "團員年資 範圍必須介於1~15之間",
                 "age.required" => "團員年齡 為必填",
-                "age.min" => "團員年齡 範圍必須介於15~70之間",
-                "age.max" => "團員年齡 範圍必須介於15~70之間",
+                "age.min" => "團員年齡 範圍必須介於16~30之間",
+                "age.max" => "團員年齡 範圍必須介於16~30之間",
                 "nationality.required" => "團員國籍 為必填",
                 "weight.lt" => "身高 必須大於 體重",
             ],//錯誤訊息
@@ -142,10 +141,9 @@ class MembersController extends Controller
             'height' => 'nullable',
             //'weight' => 'required|numeric|min:40|max:120|lt:height', // lt = less than, lg = larger than
             'weight' => 'nullable',
-            //'year' => 'required|numeric|min:0|max:50',
-            'year' => 'nullable', 
-            'age' => 'required|numeric|min:15|max:70',
-            'nationality' => 'required|string|min:2|max:191'
+            'year' => 'required|numeric|min:1|max:15',
+            'age' => 'required|numeric|min:16|max:30',
+            'nationality' => 'required|string|min:2|max:191',
             ],//驗證規則
             [
                 "name.required" => "團員名稱 為必填",
@@ -159,13 +157,13 @@ class MembersController extends Controller
                 "weight.required" => "團員體重 為必填",
                 "weight.numeric" => "團員身高 必須為數字",
                 "weight.min" => "團員體重 範圍必須介於40~120之間",
-                "weight.max" => "團員體重 範圍必須介於150~220之間",
+                "weight.max" => "團員體重 範圍必須介於150~220之間",*/
                 "year.required" => "團員年資 為必填",
-                "year.min" => "團員年資 範圍必須介於0~20之間",
-                "year.max" => "團員年資 範圍必須介於0~20之間",*/
+                "year.min" => "團員年資 範圍必須介於1~15之間",
+                "year.max" => "團員年資 範圍必須介於1~15之間",
                 "age.required" => "團員年齡 為必填",
-                "age.min" => "團員年齡 範圍必須介於15~70之間",
-                "age.max" => "團員年齡 範圍必須介於15~70之間",
+                "age.min" => "團員年齡 範圍必須介於16~30之間",
+                "age.max" => "團員年齡 範圍必須介於16~30之間",
                 "nationality.required" => "團員國籍 為必填",
                 "weight.lt" => "身高 必須大於 體重",
             ],//錯誤訊息

@@ -43,7 +43,7 @@ class MembersTableSeeder extends Seeder
                 'position' => $position,
                 'height' => rand(165,220),
                 'weight' => rand(40,90),
-                'year' => rand(5,20),
+                'year' => rand(1,15),
                 'age' => rand(16,30),
                 'nationality' => $nationality,
                 'created_at' => $random_detetime,

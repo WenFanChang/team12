@@ -43,7 +43,7 @@ class OrchestrasController extends Controller
                 'name' => 'required|string|min:2|max:100',
                 'company' => 'required|string|min:2|max:100',
                 'city' => 'required|string|min:2|max:100',
-                'style' => 'required|string|min:2|max:100'
+                'style' => 'required|string|min:2|max:100',
             ],
             [
                 "name.required" => "團隊名稱 為必填",
@@ -111,7 +111,7 @@ class OrchestrasController extends Controller
                 'name' => 'required|string|min:2|max:100',
                 'company' => 'required|string|min:2|max:100',
                 'city' => 'required|string|min:2|max:100',
-                'style' => 'required|string|min:2|max:100'
+                'style' => 'required|string|min:2|max:100',
             ],
             [
                 "name.required" => "團隊名稱 為必填",
