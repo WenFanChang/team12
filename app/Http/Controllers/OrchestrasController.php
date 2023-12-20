@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\CreateTeamRequest;
 use App\Models\Orchestra;
 
 class OrchestrasController extends Controller
@@ -36,8 +36,27 @@ class OrchestrasController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateTeamRequest $request)
     {
+        $request->validate(
+            [
+                'name' => 'required|string|min:2|max:100',
+                'company' => 'required|string|min:2|max:100',
+                'city' => 'required|string|min:2|max:100',
+                'style' => 'required|string|min:2|max:100'
+            ],
+            [
+                "name.required" => "團隊名稱 為必填",
+                "name.min" => "團隊名稱 至少需2個字元",
+                "company.required" => "公司名稱 為必填",
+                "company.min" => "公司名稱 至少需2個字元",
+                "city.required" => "公司位置 為必填",
+                "city.min" => "公司位置 至少需2個字元",
+                "style.required" => "曲風類別 為必填",
+                "style.min" => "曲風類別 至少需2個字元",
+            ],
+        );
+
         $name = $request->input('name');
         $company = $request->input('company');
         $city = $request->input('city');
@@ -85,8 +104,27 @@ class OrchestrasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CreateTeamRequest $request, $id)
     {
+        $request->validate(
+            [
+                'name' => 'required|string|min:2|max:100',
+                'company' => 'required|string|min:2|max:100',
+                'city' => 'required|string|min:2|max:100',
+                'style' => 'required|string|min:2|max:100'
+            ],
+            [
+                "name.required" => "團隊名稱 為必填",
+                "name.min" => "團隊名稱 至少需2個字元",
+                "company.required" => "公司名稱 為必填",
+                "company.min" => "公司名稱 至少需2個字元",
+                "city.required" => "公司位置 為必填",
+                "city.min" => "公司位置 至少需2個字元",
+                "style.required" => "曲風類別 為必填",
+                "style.min" => "曲風類別 至少需2個字元",
+            ],
+        );
+
         $orchestra = Orchestra::findOrFail($id);
         $orchestra->name = $request->input('name');
         $orchestra->company = $request->input('company');
