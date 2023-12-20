@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Member;
 use App\Models\Orchestra;
+use App\Http\Requests\CreateMemberRequest;
 
 class MembersController extends Controller
 {
@@ -28,16 +28,16 @@ class MembersController extends Controller
     public function create()
     {
         $orchestras = Orchestra::orderBy('orchestras.id', 'asc')->pluck('orchestras.name', 'orchestras.id');
-        return view('members.create', ['orchestras' =>$orchestra, 'orchestraSelected' => null]);
+        return view('members.create', ['orchestras' =>$orchestras, 'orchestraSelected' => null]);
     }
 
-    /**
+    /** 
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateMemberRequest $request)
     {
         $name = $request->input('name');
         $oid = $request->input('oid');
@@ -93,7 +93,7 @@ class MembersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CreateMemberRequest $request, $id)
     {
         $member = Member::findOrFail($id);
         $member->name = $request->input('name');

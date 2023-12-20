@@ -5,6 +5,7 @@
 @section('band_theme', '建立團員的表單')
 
 @section('band_contents')
+    @include('message.list')
     {!! Form::open(['url' => 'members/store']) !!}
     @include('members.form', ['submitButtonText'=>"新增團員資料"])
     {!! Form::close() !!}
