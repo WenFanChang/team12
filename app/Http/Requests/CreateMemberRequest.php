@@ -31,10 +31,9 @@ class CreateMemberRequest extends FormRequest
             'height' => 'nullable',
             //'weight' => 'required|numeric|min:40|max:120|lt:height', // lt = less than, lg = larger than
             'weight' => 'nullable',
-            //'year' => 'required|numeric|min:0|max:50',
-            'year' => 'nullable',
-            'age' => 'required|numeric|min:15|max:70',
-            'nationality' => 'required|string|min:2|max:191'
+            'year' => 'required|numeric|min:1|max:50',
+            'age' => 'required|numeric|min:16|max:70',
+            'nationality' => 'required|string|min:2|max:191',
         ];
     }
 
@@ -53,12 +52,12 @@ class CreateMemberRequest extends FormRequest
             //"weight.numeric" => "團員身高 必須為數字",
             //"weight.min" => "團員體重 範圍必須介於40~120之間",
             //"weight.max" => "團員體重 範圍必須介於150~220之間",
-            //"year.required" => "團員年資 為必填",
-            //"year.min" => "團員年資 範圍必須介於0~20之間",
-            //"year.max" => "團員年資 範圍必須介於0~20之間",
+            "year.required" => "團員年資 為必填",
+            "year.min" => "團員年資 範圍必須介於1~50之間",
+            "year.max" => "團員年資 範圍必須介於1~50之間",
             "age.required" => "團員年齡 為必填",
-            "age.min" => "團員年齡 範圍必須介於15~70之間",
-            "age.max" => "團員年齡 範圍必須介於15~70之間",
+            "age.min" => "團員年齡 範圍必須介於16~70之間",
+            "age.max" => "團員年齡 範圍必須介於16~70之間",
             "nationality.required" => "團員國籍 為必填",
             "weight.lt" => "身高 必須大於 體重",
         ];

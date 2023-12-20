@@ -40,6 +40,36 @@ class MembersController extends Controller
      */
     public function store(CreateMemberRequest $request)
     {
+        $request->validate(
+            [
+                'name' => 'required|string|min:2|max:191',
+            'oid' => 'required',
+            'position' => 'required|string|min:2|max:191',
+            'height' => 'nullable',
+            'weight' => 'nullable',
+            'year' => 'required|numeric|min:1|max:50',
+            'age' => 'required|numeric|min:16|max:70',
+            'nationality' => 'required|string|min:2|max:191',               
+            ], // 驗證規則
+            [
+             
+            "name.required" => "團員名稱 為必填",
+            "name.min" => "團員名稱 至少需2個字元",
+            "oid.required" => "樂團編號 為必填",
+            "position.required" => "團員位置 為必填",
+            "year.required" => "團員年資 為必填",
+            "year.min" => "團員年資 範圍必須介於1~50之間",
+            "year.max" => "團員年資 範圍必須介於1~50之間",
+            "age.required" => "團員年齡 為必填",
+            "age.min" => "團員年齡 範圍必須介於16~70之間",
+            "age.max" => "團員年齡 範圍必須介於16~70之間",
+            "nationality.required" => "團員國籍 為必填",
+            "weight.lt" => "身高 必須大於 體重",
+            
+            
+            ], // 錯誤訊息
+        );
+
         $name = $request->input('name');
         $oid = $request->input('oid');
         $position = $request->input('position');
