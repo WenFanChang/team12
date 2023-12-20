@@ -32,7 +32,7 @@ class CreateMemberRequest extends FormRequest
             //'weight' => 'required|numeric|min:40|max:120|lt:height', // lt = less than, lg = larger than
             'weight' => 'nullable',
             'year' => 'required|numeric|min:1|max:50',
-            'age' => 'required|numeric|min:16|max:70',
+            'age' => 'required|numeric|min:16|max:70',   //numbiger:year
             'nationality' => 'required|string|min:2|max:191',
         ];
     }
@@ -60,6 +60,7 @@ class CreateMemberRequest extends FormRequest
             "age.max" => "團員年齡 範圍必須介於16~70之間",
             "nationality.required" => "團員國籍 為必填",
             "weight.lt" => "身高 必須大於 體重",
+            //"numbiger" => "年齡 必須大於 年資",
         ];
 
     }

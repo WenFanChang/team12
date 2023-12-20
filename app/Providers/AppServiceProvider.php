@@ -27,6 +27,16 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
+        /*
+        Validator::extend('numbiger', function($attribute, $value, $parameters, $validator) {
+            // 假設存在名為 getNum 的方法來獲取數字
+            $numCompare = \Arr::get($validator->getnum(), $parameters[0]);
+            
+            // 比較兩個數字
+            return $numCompare > $value;
+        });
+        */
+        
         
     }
 }
