@@ -44,5 +44,5 @@
         
     @endforeach
 </table>
-
+{{ $orchestras->links() }}
 @endsection
