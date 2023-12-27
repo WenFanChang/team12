@@ -23,4 +23,19 @@ class Member extends Model
     {
         return $this->belongsTo('App\Models\Orchestra', 'oid', 'id');
     }
+
+    public function scopeSenior($query)
+    {
+        return $query->where('year', '>', 15)->orderBy('year', 'asc');        
+    }
+
+    public function scopeAllPositions($query)
+    { 
+        return $query->select('position')->groupBy('position');
+    }
+
+    public function scopePosition($query, $pos)
+    {
+        return $query->where('position', '=', $pos);
+    }    
 }

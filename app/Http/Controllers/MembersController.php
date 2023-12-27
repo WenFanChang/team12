@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Member;
 use App\Models\Orchestra;
 use App\Http\Requests\CreateMemberRequest;
+use Illuminate\Http\Request;
 
 class MembersController extends Controller
 {
@@ -16,10 +17,32 @@ class MembersController extends Controller
     public function index()
     {
         //
-        $members = Member::all();
-        return view('Members.index')->with('members', $members);
+        $members = Member::paginate(25);
+        $positions = Member::allPositions()->pluck('members.position', 'members.position');
+
+        return view('Members.index', ['members' => $members, 'positions'=>$positions, 'selectedPosition'=>null]);
 
     }
+
+    public function senior()
+    {
+        //從model拿特定條件下的資料
+        $members = Member::senior()->paginate(25);
+
+        $positions = Member::allPositions()->pluck('members.position', 'members.position');
+        //把資料送給view
+    
+        return view('Members.index', ['members' => $members, 'positions'=>$positions, 'selectedPosition'=>null]);
+
+    }
+
+    public function position(Request $request)
+    {
+        $members = Member::position($request->input('pos'))->paginate(25);
+        $positions = Member::allPositions()->pluck('members.position', 'members.position');
+        $selectedPosition = $request->input('pos');
+        return view('members.index', ['members' => $members, 'positions'=>$positions, 'selectedPosition'=>$selectedPosition]);
+    }    
 
     /**
      * Show the form for creating a new resource.

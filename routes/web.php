@@ -29,6 +29,10 @@ Route::get('/', function (){
 });****/
 // 顯示顯示所有團員資料
 Route::get('members', [MembersController::class, 'index'])->name('members.index');
+// 顯示顯示資深團員資料
+Route::get('members/senior', [MembersController::class, 'senior'])->name('members.senior');
+// 選定位置查詢團員
+Route::get('members/position', [MembersController::class, 'position'])->name('members.position');
 // 顯示單一團員資料
 Route::get('members/{id}', [MembersController::class, 'show'])->where('id', '[0-9]+')->name('members.show');
 // 修改單一團員表單
