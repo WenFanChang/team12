@@ -23,6 +23,18 @@ class OrchestrasController extends Controller
        /* return view('Orchestras.index', ['orchestras' => $orchestras, 'companys'=>$companys, 'selectedcompany'=>null]);*/
     }
 
+    /*public function senior()
+    {
+        //從model拿特定條件下的資料
+        $members = Member::senior()->paginate(25);
+
+        $companys = Company::allCompanys()->pluck('companys.company', 'companys.company');
+        //把資料送給view
+    
+        return view('orchestras.index', ['orchestras' => $orchestras, 'companys'=>$companys, 'selectedCompany'=>null]);
+
+    }*/
+
    /* public function company(Request $request)
     {
         $orchestras = Orchestra::company($request->input('pos'))->paginate(25);
