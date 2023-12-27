@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 //use Illuminate\Http\Request;
 use App\Models\Orchestra;
 use App\Http\Requests\CreateOrchestraRequest;
+use Illuminate\Http\Request;
 
 class OrchestrasController extends Controller
 {
@@ -15,10 +16,20 @@ class OrchestrasController extends Controller
      */
     public function index()
     {
-        
         $orchestras = Orchestra::paginate(25);
+       /* $companys = Company::allCompanys()->pluck('companys.company', 'companys.company');*/
+        
         return view('orchestras.index')->with('orchestras', $orchestras);
+       /* return view('Orchestras.index', ['orchestras' => $orchestras, 'companys'=>$companys, 'selectedcompany'=>null]);*/
     }
+
+   /* public function company(Request $request)
+    {
+        $orchestras = Orchestra::company($request->input('pos'))->paginate(25);
+        $companys = Orchestra::allCompanys()->pluck('orchestras.company', 'orchestras.company');
+        $selectedCompany = $request->input('pos');
+        return view('orchestras.index', ['orchestras' => $orchestras, 'companys'=>$comapnys, 'selectedCompany'=>$selectedCompany]);
+    }  */
 
     /**
      * Show the form for creating a new resource.
