@@ -29,6 +29,10 @@ Route::get('/', function (){
 });****///d1104181048測試
 Route::get('members', [MembersController::class, 'index'])->name('members.index');
 
+Route::get('members/senior', [MembersController::class, 'senior'])->name('members.senior');
+
+Route::post('members/position', [MembersController::class, 'position'])->name('members.sposition');
+
 Route::get('members/{id}', [MembersController::class, 'show'])->where('id','[0-9]+')->name('members.show');
 
 Route::get('members/{id}/edit', [MembersController::class, 'edit'])->where('id','[0-9]+')->name('members.edit');

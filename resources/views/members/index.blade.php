@@ -6,6 +6,14 @@
 <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-1">
     <a href = "{{ route('members.create') }} ">新增團員</a>
     <a href = "{{ route('members.index') }} ">所有團員</a>
+    <a href = "{{ route('members.senior') }} ">資深團員</a>
+    <form action="{{ url('members/position')}}" method='POST'>
+        {!! Form::label('pos', '選取位置:')  !!}
+        {!! Form::select('pos', $positions, ['class' => 'form-control']) !!}
+        <input class="btn btn-default" type="submit" value="查詢" />
+        @csrf
+    </form>
+
 </div>
 <table>
     <tr>
@@ -46,7 +54,7 @@
         </tr>
     @endforeach
 </table>
-
+{{ $members->links() }}
 
 @endsection
 

@@ -14,7 +14,7 @@ class OrchestrasController extends Controller
      */
     public function index()
     {
-        $orchestras = Orchestra::all();
+        $orchestras = Orchestra::paginate(25);
         return view('orchestras.index')->with('orchestras', $orchestras);
         
     }

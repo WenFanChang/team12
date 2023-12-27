@@ -20,14 +20,34 @@ class Member extends Model
         'nationality'
     ];
 
-public function orchestra()
-{
+    public function orchestra()
+    {
 
     return $this->belongsTo('App\models\Orchestra','oid','id');
+    }
+    public function scopeSenior($query)
+    {
+        return $query->where('year' , '>',10)->orderBy('year', 'desc');
+    }
+
+
+    public function scopeALLPositions($query)
+    {
+        return $query->select('position')->groupBy('position');
+    }
+
+    public function scopePosition($query, $pos)
+    {
+        return $query->where('position', '=', $pos);
+    }
+
+
+
 }
 
 
-}
+
+
 
 
 
