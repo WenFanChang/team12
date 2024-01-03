@@ -38,4 +38,5 @@
         </tr>
     @endforeach
 </table>
+{{ $orchestras->links() }}
 @endsection
