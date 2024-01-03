@@ -60,3 +60,14 @@ Route::delete('orchestras/delete/{id}', [OrchestrasController::class, 'destroy']
 Route::get('orchestras/create', [OrchestrasController::class, 'create'])->name('orchestras.create');
 
 Route::post('orchestras/store', [OrchestrasController::class, 'store'])->name('orchestras.store');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -4,7 +4,9 @@
 
 @section('band_contents')
 <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
+    @can('admin')
     <a href="{{ route('members.create') }} ">新增團員</a>
+    @endcan
     <a href="{{ route('members.index') }} ">所有團員</a>
     <a href="{{ route('members.senior') }} ">資深團員</a>
     <form action="{{ url('members/position') }}" method='GET'>
