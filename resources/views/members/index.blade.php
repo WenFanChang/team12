@@ -29,8 +29,12 @@
         <th>年齡</th>
         <th>國籍</th>
         <th>操作1</th>
+        @can('admin')
         <th>操作2</th>
         <th>操作3</th>
+        @elsecan('manager')
+        <th>操作2</th>
+        @endcan
     </tr>
     @foreach ($members as $member)
         <tr>
@@ -44,6 +48,7 @@
             <td>{{ $member->age }} </td>
             <td>{{ $member->nationality }} </td>
             <td><a href="{{ route('members.show', ['id'=>$member->id]) }}">顯示</a></td>
+            @can('admin')
             <td><a href="{{ route('members.edit', ['id'=>$member->id]) }}">修改</a></td>
             <td>
                 <form action="{{ url('/members/delete', ['id' => $member->id]) }}" method="post">
@@ -52,6 +57,9 @@
                     @csrf
                 </form>
             </td>
+            @elsecan('manager')
+            <td><a href="{{ route('members.edit', ['id'=>$member->id]) }}">修改</a></td>
+            @endcan
         </tr>
     @endforeach
 </table>
