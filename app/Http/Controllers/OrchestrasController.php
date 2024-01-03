@@ -94,6 +94,8 @@ class OrchestrasController extends Controller
      */
     public function edit($id)
     {
+        parent::edit($id);
+
         $orchestra = Orchestra::findOrFail($id);
         return view('orchestras.edit', ['orchestra' =>$orchestra]);
     }

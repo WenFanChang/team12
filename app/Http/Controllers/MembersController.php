@@ -140,6 +140,8 @@ class MembersController extends Controller
      */
     public function edit($id)
     {
+        parent::edit($id);
+
         $member = Member::findOrFail($id);
         $orchestras = Orchestra::orderBy('orchestras.id', 'asc')->pluck('orchestras.name', 'orchestras.id');
         $selected_tags = $member->orchestra->id;
