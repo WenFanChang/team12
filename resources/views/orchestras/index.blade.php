@@ -4,7 +4,9 @@
 
 @section('band_contents')
 <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-1">
+    @can('admin')
     <a href = "{{ route('members.create') }} ">新增團員</a>
+    @endcan
     <a href = "{{ route('members.index') }} ">所有團員</a>
 </div>
 
@@ -15,8 +17,12 @@
         <td>公司位置</td>
         <td>曲風類別</td>
         <td>操作1</td>
+        @can('admin')
         <td>操作2</td>
         <td>操作3</td>
+        @elsecan('manager')
+        <th>操作2</th>
+        @endcan
     </tr>
 
 
@@ -30,6 +36,7 @@
             <td>{{ $orchestra->city }}</td>
             <td> {{ $orchestra->style }}</td>
             <td><a href="{{ route('orchestras.show', ['id'=>$orchestra->id]) }}">顯示</a></td>
+            @can('admin')
             <td><a href="{{ route('orchestras.edit', ['id'=>$orchestra->id]) }}">修改</a></td>
             <td>
                 <form action = "{{ url('/orchestras/delete', ['id' => $orchestra->id]) }}" method="post">
@@ -39,6 +46,9 @@
                 </form>
 
             </td>
+            @elsecan('manager')
+            <td><a href="{{ route('orchestras.edit', ['id'=>$orchestra->id]) }}">修改</a></td>    
+            @endcan
         </tr>
     @endforeach
 

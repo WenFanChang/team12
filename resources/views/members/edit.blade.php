@@ -5,7 +5,7 @@
 
 @section('band',  '編輯中的團員')
 @section('band_contents')
-@include('message.list')
+    @include('message.list')
     {!! Form::model($member, ['method'=> 'PATCH' , 'action' => ['\App\Http\Controllers\MembersController@update', $member->id]]) !!}
     @include('members.form', ['submitButtonText'=>"更新團員資料"])
     {!! Form::close() !!}

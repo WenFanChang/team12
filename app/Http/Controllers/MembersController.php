@@ -26,7 +26,7 @@ class MembersController extends Controller
 
     public function senior()
     {
-        $members = Member::senior()->paginate();
+        $members = Member::senior()->paginate(25);
         $positions= Member::allPositions()->pluck('members.position','members.position');
         
         return view('members.index',['members'=>$members, 'positions'=>$positions,'selectedPosition'=>null]);
@@ -35,7 +35,7 @@ class MembersController extends Controller
 
     public function position(Request $request)
     {
-        $members = Member::position($request->input('pos'))->paginate();
+        $members = Member::position($request->input('pos'))->paginate(25);
         $positions= Member::allPositions()->pluck('members.position','members.position');
         
         return view('members.index',['members'=>$members, 'positions'=>$positions,'selectedPosition'=>null]);
@@ -156,6 +156,7 @@ class MembersController extends Controller
      */
     public function edit($id)
     {
+       parent::edit($id);
        $member = Member::findOrFail($id);
        $orchestras= Orchestra::orderBy('orchestras.id','asc')->pluck('orchestras.name','orchestras.id');
        $selected_tags= $member->orchestra->id;

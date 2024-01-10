@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MembersController;
 use App\Http\Controllers\OrchestrasController;
-
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,10 +19,12 @@ use App\Http\Controllers\OrchestrasController;
 //Route::get('/', function () {
 //    return view('welcome');
 //});
-Route::get('/', function (){
-    return redirect('members');
 
-});
+Route::middleware(['auth'])->group(function () {
+    // 註解一下
+    Route::get('/', function () {
+        return redirect('members');
+    });
 /***Route::get('/', function (){
     return redirect('orchestras');
 
@@ -46,6 +48,8 @@ Route::get('members/create', [MembersController::class, 'create'])->name('member
 Route::post('members/store', [MembersController::class, 'store'])->name('members.store');
 
 
+
+
 //顯示單筆
 
 //修改表單
@@ -62,9 +66,11 @@ Route::delete('orchestras/delete/{id}', [OrchestrasController::class, 'destroy']
 
 Route::get('orchestras/create', [OrchestrasController::class, 'create'])->name('orchestras.create');
 
+Route::get('orchestras/{id}/edit', [OrchestrasController::class, 'edit'])->where('id', '[0-9]+')->name('orchestras.edit');
+
 Route::post('orchestras/store', [OrchestrasController::class, 'store'])->name('orchestras.store');
 
-
+});
 
 
 
