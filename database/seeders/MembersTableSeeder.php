@@ -36,11 +36,11 @@ class MembersTableSeeder extends Seeder
             $position = $this->generateRandomPosition();
             $nationality = $this->generateRandomNationality();
             $random_detetime = Carbon::now()->subMinutes(rand(1,55));
-            $year = rand(1,58);
+           /* $year = rand(1,58);
             $age = rand(15,59);
             if ($year >= $age) {
                 $year = rand(1, $age - 15);
-            }
+            }*/
 
             DB::table('members')->insert([
                 'name' =>$name,
